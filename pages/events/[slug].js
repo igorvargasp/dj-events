@@ -45,7 +45,7 @@ export default function EventPage({ evt }) {
       </div>
       <div>
         <span>
-          {date} at {time}
+          {new Date(date).toLocaleDateString("en-US")} at {time}
         </span>
         <h1>{name}</h1>
         {url && (

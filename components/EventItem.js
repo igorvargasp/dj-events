@@ -6,7 +6,6 @@ function EventItem({ evt }) {
   const { date, time, name, slug, image } = evt.attributes;
   return (
     <div className={styles.event}>
-      {console.log(image.data.attributes.formats.thumbnail.url)}
       <div className={styles.img}>
         <img
           alt="seila"
@@ -21,7 +20,7 @@ function EventItem({ evt }) {
       </div>
       <div className={styles.info}>
         <span>
-          {date} at {time}
+          {new Date(date).toLocaleDateString("en-US")} at {time}
         </span>
         <h3>{name}</h3>
       </div>
