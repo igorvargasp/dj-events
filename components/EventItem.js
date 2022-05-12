@@ -3,24 +3,30 @@ import Link from "next/link";
 import styles from "@/styles/EventItem.module.css";
 
 function EventItem({ evt }) {
+  const { date, time, name, slug, image } = evt.attributes;
   return (
     <div className={styles.event}>
+      {console.log(image.data.attributes.formats.thumbnail.url)}
       <div className={styles.img}>
         <img
           alt="seila"
           width={170}
           height={100}
-          src={evt.image ? evt.image : "/images/event-default.png"}
+          src={
+            image
+              ? image.data.attributes.formats.thumbnail.url
+              : "/images/event-default.png"
+          }
         />
       </div>
       <div className={styles.info}>
         <span>
-          {evt.date} at {evt.time}
+          {date} at {time}
         </span>
-        <h3>{evt.name}</h3>
+        <h3>{name}</h3>
       </div>
       <div className={styles.link}>
-        <Link href={`/events/${evt.slug}`}>
+        <Link href={`/events/${slug}`}>
           <a className="btn">Details</a>
         </Link>
       </div>
